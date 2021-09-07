@@ -28,7 +28,6 @@ namespace Management.Controllers
         // GET: People/Details/5
         public ActionResult Details(int? id)
         {
-
             if (Session["CurrentUserId"] != null && Session["CurrentUserIsAdminister"] != null)
             {
                 if (id == null)

@@ -17,33 +17,49 @@ namespace Management.Controllers
         // GET: Records
         public ActionResult Index()
         {
-            return View(db.Records.ToList());
+            if (Session["CurrentUserId"] != null && Session["CurrentUserIsAdminister"] != null)
+            {
+                return View(db.Records.ToList());
+            }
+            else
+                return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
         }
 
         // GET: Records/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["CurrentUserId"] != null && Session["CurrentUserIsAdminister"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Record record = db.Records.Find(id);
+                if (record == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(record);
             }
-            Record record = db.Records.Find(id);
-            if (record == null)
-            {
-                return HttpNotFound();
-            }
-            return View(record);
+            else
+                return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
         }
 
         // GET: Records/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["CurrentUserId"] != null && Session["CurrentUserIsAdminister"] != null)
+            {
+                if ((bool)Session["CurrentUserIsAdminister"])
+                    return View();
+                else
+                    return RedirectToAction("info", "Home", new { Info = "Accout " + Session["CurrentUserId"] + " Is Not Administer" });
+            }
+            else
+                return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
         }
 
         // POST: Records/Create
-        // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
-        // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "RecordId,PersonId,GoodId,OperationNum,OperationType,OperationTime")] Record record)
@@ -61,21 +77,29 @@ namespace Management.Controllers
         // GET: Records/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["CurrentUserId"] != null && Session["CurrentUserIsAdminister"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if ((bool)Session["CurrentUserIsAdminister"])
+                {
+                    if (id == null)
+                    {
+                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                    }
+                    Record record = db.Records.Find(id);
+                    if (record == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    return View(record);
+                }
+                else
+                    return RedirectToAction("info", "Home", new { Info = "Accout " + Session["CurrentUserId"] + " Is Not Administer" });
             }
-            Record record = db.Records.Find(id);
-            if (record == null)
-            {
-                return HttpNotFound();
-            }
-            return View(record);
+            else
+                return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
         }
 
         // POST: Records/Edit/5
-        // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
-        // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "RecordId,PersonId,GoodId,OperationNum,OperationType,OperationTime")] Record record)
@@ -92,16 +116,26 @@ namespace Management.Controllers
         // GET: Records/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["CurrentUserId"] != null && Session["CurrentUserIsAdminister"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if ((bool)Session["CurrentUserIsAdminister"])
+                {
+                    if (id == null)
+                    {
+                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                    }
+                    Record record = db.Records.Find(id);
+                    if (record == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    return View(record);
+                }
+                else
+                    return RedirectToAction("info", "Home", new { Info = "Accout " + Session["CurrentUserId"] + " Is Not Administer" });
             }
-            Record record = db.Records.Find(id);
-            if (record == null)
-            {
-                return HttpNotFound();
-            }
-            return View(record);
+            else
+                return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
         }
 
         // POST: Records/Delete/5
