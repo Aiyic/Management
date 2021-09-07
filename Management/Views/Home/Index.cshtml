@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Please Login Before operation", "Login", "Home")
+</p>
+
+<p>
+    @Html.ActionLink("Goto Person", "Index", "People")
+</p>
+
+<p>
+    @Html.ActionLink("Goto Goods", "Index", "Goods")
+</p>
