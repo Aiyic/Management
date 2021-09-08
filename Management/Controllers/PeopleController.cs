@@ -14,7 +14,6 @@ namespace Management.Controllers
     {
         private ManagementDBContext db = new ManagementDBContext();
 
-/********************************************** Index页显示密码 **************************************/
         // GET: People
         public ActionResult Index()
         {

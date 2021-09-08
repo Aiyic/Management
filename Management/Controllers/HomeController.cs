@@ -26,6 +26,13 @@ namespace Management.Controllers
             return View();
         }
 
+        // GET: Home/Logout
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Index");
+        }
+
         // GET: Home/Login
         public ActionResult Login()
         {

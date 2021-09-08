@@ -14,7 +14,7 @@ namespace Management.Models.Person
         public int PersonId { get; set; }
 
         [Required]
-        public int Password { get; set; }
+        public string Password { get; set; }
         [Required]
         [MaxLength(50)]
         public string Name { get; set; }
