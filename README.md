@@ -21,13 +21,15 @@
 
 
 
-<img src="C:\Users\H\Desktop\QQ截图20210908210414.png" alt="QQ截图20210908210414" style="zoom:100%;" />
+![QQ截图20210908210414](C:\Users\H\source\repos\Management\Picture\QQ截图20210908210414.png)
 
-![QQ截图20210908210715](C:\Users\H\Desktop\QQ截图20210908210715.png)
+![QQ截图20210908210715](C:\Users\H\source\repos\Management\Picture\QQ截图20210908210715.png)
 
-![QQ截图20210908210927](C:\Users\H\Desktop\QQ截图20210908210927.png)
+![QQ截图20210908210927](C:\Users\H\source\repos\Management\Picture\QQ截图20210908210927.png)
 
-![QQ截图20210908211029](C:\Users\H\Desktop\QQ截图20210908211029.png)
+![QQ截图20210908211029](C:\Users\H\source\repos\Management\Picture\QQ截图20210908211029.png)
+
+
 
 #### 项目当前阶段
 
