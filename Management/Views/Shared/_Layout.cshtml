@@ -37,11 +37,11 @@
                         <li>@Html.ActionLink("注销", "Logout", "Home")</li>
                         if ((bool)Session["CurrentUserIsAdminister"])
                         {
-                            <li>@Html.ActionLink("Administer", "Info", "Home", "Administer", "Administer")</li>
+                            <li>@Html.ActionLink("Administer", "Edit", "People", new { id = Session["CurrentUserId"] }, null)</li>
                         }
                         else
                         {
-                            <li>@Html.ActionLink("User", "Info", "Home", "User", "User")</li>
+                            <li>@Html.ActionLink("User", "Edit", "Home", new { id = Session["CurrentUserId"] }, null)</li>
                         }
                     }
                 </ul>
