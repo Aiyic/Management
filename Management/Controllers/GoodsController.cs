@@ -64,14 +64,20 @@ namespace Management.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "GoodsName,GoodsNum,GoodsPrice")] Goods goods)
         {
-            if (ModelState.IsValid)
+            try
             {
-                goods.GoodsBuyTime = DateTime.Now;
-                db.Goods.Add(goods);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    goods.GoodsBuyTime = DateTime.Now;
+                    db.Goods.Add(goods);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-
+            catch
+            {
+                return RedirectToAction("info", "Home", new { Info = "Add Err" });
+            }
             return View(goods);
         }
 
@@ -105,13 +111,20 @@ namespace Management.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "GoodsId,GoodsName,GoodsNum,GoodsPrice,GoodsBuyTime")] Goods goods)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(goods).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(goods).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(goods);
             }
-            return View(goods);
+            catch
+            {
+                return RedirectToAction("info", "Home", new { Info = "Edit Err" });
+            }
         }
 
         // GET: Goods/Delete/5

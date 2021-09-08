@@ -33,6 +33,7 @@ namespace Management.Models.Record
         [Required]
         public int GoodId { get; set; }
         [Required]
+        [Range(0,10000000)]
         public int OperationNum { get; set; }
 
         [Required]

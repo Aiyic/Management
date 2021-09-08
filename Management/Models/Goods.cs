@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,8 @@ namespace Management.Models.Goods
         public int GoodsId { get; set; }
 
         [Required]
+        [Index(IsUnique = true)]
+        [MaxLength(50)]
         public string GoodsName { get; set; }
         [Required]
         [Range(0, 10000000)]
