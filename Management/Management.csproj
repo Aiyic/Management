@@ -199,6 +199,7 @@
     <Content Include="Views\Operation\Return.cshtml" />
     <Content Include="Views\Operation\Consumption.cshtml" />
     <Content Include="Views\Operation\Index.cshtml" />
+    <Content Include="Views\Operation\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

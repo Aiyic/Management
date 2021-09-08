@@ -178,44 +178,32 @@ namespace Management.Controllers
 
 
 
-        // GET: Operation/Serach
-        public ActionResult Serach()
+        // GET: Operation/Search
+        public ActionResult Search()
         {
             if (Session["CurrentUserId"] != null && Session["CurrentUserIsAdminister"] != null)
                 return View();
             else
                 return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
         }
-/*
-        // POST: Records/Serach
+
+        // POST: Records/Search
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Serach([Bind(Include = "GoodsName")] Goods goods)
+        public ActionResult Search(string GoodsName)
         {
+            IQueryable<Goods> goodsinfo = null;
             if (ModelState.IsValid)
             {
-                Goods goods = db.Goods.Find(record.GoodId);
-                if (goods != null)
-                {
-                    if (goods.GoodsNum < record.OperationNum)
-                        return RedirectToAction("Info", "Home", new { Info = "Borrow Num Is More Than Goods Num." });
-                    record.PersonId = (int)Session["CurrentUserId"];
-                    record.OperationType = OpType.Borrow;
-                    record.OperationTime = DateTime.Now;
-
-                    goods.GoodsNum -= record.OperationNum;
-                    db.Entry(goods).State = EntityState.Modified;
-
-                    db.Records.Add(record);
-                    db.SaveChanges();
-                    return RedirectToAction("Info", "Home", new { Info = "Operation Success." });
-                }
-                else
-                    return RedirectToAction("Info", "Home", new { Info = "Goods Id " + record.GoodId + " Does Not Exist." });
+                goodsinfo =
+                    from Goods in db.Goods
+                    where Goods.GoodsName.Contains(GoodsName)
+                    select Goods;
+                
+                if (goodsinfo == null)
+                    return RedirectToAction("Info", "Home", new { Info = "Goods Name " + GoodsName + " Does Not Exist." });
             }
-            return View(record);
+            return View(goodsinfo.ToList<Goods>());
         }
-
-   */
     }
 }
