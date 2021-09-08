@@ -15,7 +15,8 @@ namespace Management.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            //return View();
+            return RedirectToAction("Index", "Operation");
         }
 
         // GET: Home/Info
@@ -83,6 +84,7 @@ namespace Management.Controllers
                 return RedirectToAction("Info", new { info = "Register Failed"});
             }
         }
+        
 
     }
 }

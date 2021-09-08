@@ -44,7 +44,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.OperationType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <select class="form-control" accesskey=model.OperationType>
+                <select class="form-control" name="OperationType">
+                    <option label="Select Operation" selected="selected" style="display : none"></option>
                     <option label="Borrow" value=0></option>
                     <option label="Return" value=1></option>
                     <option label="Consumption" value=2></option>

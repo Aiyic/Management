@@ -19,7 +19,10 @@ namespace Management.Controllers
         {
             if (Session["CurrentUserId"] != null && Session["CurrentUserIsAdminister"] != null)
             {
-                return View(db.Records.ToList());
+                if ((bool)Session["CurrentUserIsAdminister"])
+                    return View(db.Records.ToList());
+                else
+                    return RedirectToAction("info", "Home", new { Info = "Accout " + Session["CurrentUserId"] + " Is Not Administer" });
             }
             else
                 return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
@@ -30,16 +33,21 @@ namespace Management.Controllers
         {
             if (Session["CurrentUserId"] != null && Session["CurrentUserIsAdminister"] != null)
             {
-                if (id == null)
+                if ((bool)Session["CurrentUserIsAdminister"])
                 {
-                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                    if (id == null)
+                    {
+                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                    }
+                    Record record = db.Records.Find(id);
+                    if (record == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    return View(record);
                 }
-                Record record = db.Records.Find(id);
-                if (record == null)
-                {
-                    return HttpNotFound();
-                }
-                return View(record);
+                else
+                    return RedirectToAction("info", "Home", new { Info = "Accout " + Session["CurrentUserId"] + " Is Not Administer" });
             }
             else
                 return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
@@ -48,7 +56,6 @@ namespace Management.Controllers
         // GET: Records/Create
         public ActionResult Create()
         {
-            ViewBag.OpTypeList = Enum.GetValues(typeof(OpType)).Cast<OpType>();
             if (Session["CurrentUserId"] != null && Session["CurrentUserIsAdminister"] != null)
             {
                 if ((bool)Session["CurrentUserIsAdminister"])
@@ -104,7 +111,7 @@ namespace Management.Controllers
         // POST: Records/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PersonId,GoodId,OperationNum,OperationType,OperationTime")] Record record)
+        public ActionResult Edit([Bind(Include = "RecordId,PersonId,GoodId,OperationNum,OperationType,OperationTime")] Record record)
         {
             if (ModelState.IsValid)
             {

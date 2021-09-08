@@ -19,11 +19,13 @@ namespace Management.Controllers
         public ActionResult Index()
         {
             if (Session["CurrentUserId"] != null && Session["CurrentUserIsAdminister"] != null)
-            {
-                return View(db.Persons.ToList());
-            }
+                if ((bool)Session["CurrentUserIsAdminister"])
+                    return View(db.Persons.ToList());
+                else
+                    return RedirectToAction("info", "Home", new { Info = "Accout " + Session["CurrentUserId"] + " Is Not Administer" });
             else
                 return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
+            
         }
     
         // GET: People/Details/5
@@ -31,16 +33,21 @@ namespace Management.Controllers
         {
             if (Session["CurrentUserId"] != null && Session["CurrentUserIsAdminister"] != null)
             {
-                if (id == null)
+                if ((bool)Session["CurrentUserIsAdminister"])
                 {
-                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                    if (id == null)
+                    {
+                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                    }
+                    Person person = db.Persons.Find(id);
+                    if (person == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    return View(person);
                 }
-                Person person = db.Persons.Find(id);
-                if (person == null)
-                {
-                    return HttpNotFound();
-                }
-                return View(person);
+                else
+                    return RedirectToAction("info", "Home", new { Info = "Accout " + Session["CurrentUserId"] + " Is Not Administer" });
             }
             else
                 return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });

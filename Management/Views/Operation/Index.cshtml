@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Operation Index</h2>
+
+
+@if (Session["CurrentUserId"] == null || Session["CurrentUserIsAdminister"] == null)
+{
+    <hr />
+    <p>
+        @Html.ActionLink("Please Login Before operation", "Login", "Home")
+    </p>
+}
+else
+{
+    <hr />
+    <p>
+        @Html.ActionLink("Borrow", "Borrow") |
+        @Html.ActionLink("Return", "Return") |
+        @Html.ActionLink("Consumption", "Consumption")
+    </p>
+}
