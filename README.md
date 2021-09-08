@@ -21,13 +21,13 @@
 
 
 
-![QQ截图20210908210414](C:\Users\H\source\repos\Management\Picture\QQ截图20210908210414.png)
+![QQ截图20210908210414](~\Picture\QQ截图20210908210414.png)
 
-![QQ截图20210908210715](C:\Users\H\source\repos\Management\Picture\QQ截图20210908210715.png)
+![QQ截图20210908210715](~\Picture\QQ截图20210908210715.png)
 
-![QQ截图20210908210927](C:\Users\H\source\repos\Management\Picture\QQ截图20210908210927.png)
+![QQ截图20210908210927](~\Picture\QQ截图20210908210927.png)
 
-![QQ截图20210908211029](C:\Users\H\source\repos\Management\Picture\QQ截图20210908211029.png)
+![QQ截图20210908211029](~\Picture\QQ截图20210908211029.png)
 
 
 
