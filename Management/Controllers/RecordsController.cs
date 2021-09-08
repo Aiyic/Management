@@ -48,6 +48,7 @@ namespace Management.Controllers
         // GET: Records/Create
         public ActionResult Create()
         {
+            ViewBag.OpTypeList = Enum.GetValues(typeof(OpType)).Cast<OpType>();
             if (Session["CurrentUserId"] != null && Session["CurrentUserIsAdminister"] != null)
             {
                 if ((bool)Session["CurrentUserIsAdminister"])
@@ -62,10 +63,11 @@ namespace Management.Controllers
         // POST: Records/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RecordId,PersonId,GoodId,OperationNum,OperationType,OperationTime")] Record record)
+        public ActionResult Create([Bind(Include = "PersonId,GoodId,OperationNum,OperationType,OperationTime")] Record record)
         {
             if (ModelState.IsValid)
             {
+                record.OperationTime = DateTime.Now;
                 db.Records.Add(record);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -102,7 +104,7 @@ namespace Management.Controllers
         // POST: Records/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RecordId,PersonId,GoodId,OperationNum,OperationType,OperationTime")] Record record)
+        public ActionResult Edit([Bind(Include = "PersonId,GoodId,OperationNum,OperationType,OperationTime")] Record record)
         {
             if (ModelState.IsValid)
             {

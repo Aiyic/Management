@@ -7,11 +7,22 @@ using System.Linq;
 using System.Web;
 using Management.Models.Person;
 using Management.Models.Goods;
+using System.Reflection;
+using System.Web.Mvc;
+using System.ComponentModel;
 
 namespace Management.Models.Record
 {
-    public enum OpType {Borrow, Return, Consumption }
-
+    public enum OpType
+    {
+        [Display(Name = "Borrow")]
+        Borrow =0,
+        [Display(Name = "Return")]
+        Return =1,
+        [Display(Name = "Consumption")]
+        Consumption =2
+    }
+    
     public class Record
     {
         [Key]

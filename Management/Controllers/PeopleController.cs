@@ -14,6 +14,7 @@ namespace Management.Controllers
     {
         private ManagementDBContext db = new ManagementDBContext();
 
+/********************************************** Index页显示密码 **************************************/
         // GET: People
         public ActionResult Index()
         {
@@ -45,6 +46,13 @@ namespace Management.Controllers
                 return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
         }
 
+/********************************************** 调试用版本 **************************************/
+        // GET: People/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+/*
         // GET: People/Create
         public ActionResult Create()
         {
@@ -57,8 +65,8 @@ namespace Management.Controllers
             }
             else
                 return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
-
         }
+*/
 
         // POST: People/Create
         [HttpPost]
