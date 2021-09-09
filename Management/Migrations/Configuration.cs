@@ -15,6 +15,11 @@ namespace Management.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+
+            // AutomaticMigrationsEnabled = true;//自动迁移为true
+            // AutomaticMigrationDataLossAllowed = true;//允许数据丢失,默认生成时没有这一项（不添加这一项时，只在添加/删除实体类时自动生成，如果我们删除了实体类的一个属性就会抛出异常）
+
+
         }
         
         protected override void Seed(Management.Models.ManagementDBContext context)
