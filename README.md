@@ -5,7 +5,7 @@
 
 #### 系统框架
 
-​	整个系统是基于**ASP.Net core**开发的Web应用，实体基于EF使用code first的方式同步数据库
+​	整个系统是基于**ASP.Net Web**开发的Web应用
 
 
 
