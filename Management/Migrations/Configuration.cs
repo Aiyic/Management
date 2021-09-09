@@ -1,4 +1,4 @@
-﻿namespace Management.Migrations
+namespace Management.Migrations
 {
     using Management.Models;
     using Management.Models.Person;
