@@ -1,4 +1,5 @@
-﻿using Management.Models.Goods;
+﻿using Management.Models;
+using Management.Models.Goods;
 using Management.Models.Person;
 using Management.Models.Record;
 using System;
@@ -10,20 +11,12 @@ using System.Web.Mvc;
 
 namespace Management.Controllers
 {
-
-    public class ManagementDBContext : DbContext
-    {
-        public DbSet<Person> Persons { get; set; }
-        public DbSet<Goods> Goods { get; set; }
-        public DbSet<Record> Records { get; set; }
-    }
-
+    
     public class OperationController : Controller
     {
 
         private ManagementDBContext db = new ManagementDBContext();
-
-
+        
         // GET: Operation
         public ActionResult Index()
         {

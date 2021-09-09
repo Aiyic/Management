@@ -41,10 +41,5 @@ namespace Management.Models.Record
 
         public DateTime OperationTime { get; set; }
     }
-
-    public class ManagementDBContext : DbContext
-    {
-        public DbSet<Record> Records { get; set; }
-    }
-
+    
 }

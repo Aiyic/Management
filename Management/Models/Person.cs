@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Management.Models.Person
 {
@@ -26,9 +27,5 @@ namespace Management.Models.Person
         public bool IsAdminister { get; set; }
 
     }
-
-    public class ManagementDBContext : DbContext
-    {
-        public DbSet<Person> Persons { get; set; }
-    }
+    
 }

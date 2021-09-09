@@ -26,9 +26,5 @@ namespace Management.Models.Goods
 
         public DateTime GoodsBuyTime { get; set; }
     }
-
-    public class ManagementDBContext : DbContext
-    {
-        public DbSet<Goods> Goods { get; set; }
-    }
+    
 }
