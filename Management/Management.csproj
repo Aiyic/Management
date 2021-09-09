@@ -169,6 +169,12 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Static\Image\consume.png" />
+    <Content Include="Static\Image\title.png" />
+    <Content Include="Static\Image\borrow.png" />
+    <Content Include="Static\Image\consumption.png" />
+    <Content Include="Static\Image\return.png" />
+    <Content Include="Static\Image\search.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
