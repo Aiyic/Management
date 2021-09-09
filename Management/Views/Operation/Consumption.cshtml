@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Consumption</h2>
+<h2 style="text-align:center">Consumption</h2>
 
 
 @using Management.Models.Record
@@ -45,8 +45,8 @@
 }
 
 <hr />
-<p>
-    @Html.ActionLink("Back to Home", "Index")
+<p style="text-align:center">
+    <button type="button" class="btn btn-outline-primary">@Html.ActionLink("Back to Home", "Index")</button>
 </p>
 
 @section Scripts {

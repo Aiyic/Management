@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Borrow</h2>
+<h2 style="text-align:center">Borrow</h2>
 
 
 @using Management.Models.Record
@@ -14,8 +14,8 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>Record</h4>
+    <div class="form-horizontal" style="padding-left:300px">
+        <h4 style="padding-left:240px">Record</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         
@@ -36,7 +36,7 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
+            <div class="col-md-offset-2 col-md-10" style="padding-left:103px">
                 <input type="submit" value="Borrow" class="btn btn-default" />
             </div>
         </div>
@@ -44,8 +44,8 @@
 }
 
 <hr />
-<p>
-    @Html.ActionLink("Back to Home", "Index")
+<p style="text-align:center">
+    <button type="button" class="btn btn-outline-primary">@Html.ActionLink("Back to Home", "Index")</button>
 </p>
 
 @section Scripts {

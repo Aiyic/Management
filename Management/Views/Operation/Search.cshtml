@@ -6,14 +6,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Search</h2>
+<h2 style="text-align:center">Search</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>Search</h4>
+    <div class="form-horizontal" style="padding-left:300px">
+        <h4 style="padding-left:240px">Search</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -79,12 +79,17 @@
                     @Html.DisplayFor(modelItem => item.GoodsBuyTime)
                 </td>
                 <td>
-                    @Html.ActionLink("Details", "Details","Goods", new { id = item.GoodsId }, null)
+                    @Html.ActionLink("Details", "Details", "Goods", new { id = item.GoodsId }, null)
                 </td>
             </tr>
         }
     </table>
 }
+
+<hr />
+<p style="text-align:center">
+    <button type="button" class="btn btn-outline-primary">@Html.ActionLink("Back to Home", "Index")</button>
+</p>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

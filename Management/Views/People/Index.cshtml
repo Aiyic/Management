@@ -5,9 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2 style="text-align:center">Index</h2>
 
-<p>
+<p style="text-align:center">
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
@@ -33,32 +33,38 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PersonId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Password)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Department)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsAdminister)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.PersonId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.PersonId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.PersonId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsAdminister)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PersonId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.PersonId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.PersonId })
+            </td>
+        </tr>
+    }
 
 </table>
+
+<hr />
+<p style="text-align:center">
+    <button type="button" class="btn btn-outline-primary">@Html.ActionLink("Back to Home", "Index")</button>
+</p>
