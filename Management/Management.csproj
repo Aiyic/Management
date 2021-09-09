@@ -214,6 +214,7 @@
     <Content Include="Views\Operation\Index.cshtml" />
     <Content Include="Views\Operation\Search.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="Views\Operation\PersonRecord.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

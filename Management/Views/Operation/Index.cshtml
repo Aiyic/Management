@@ -4,14 +4,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 style="text-align:center">Operation Index</h2>
+<h2>Operation Index</h2>
 
 
 @if (Session["CurrentUserId"] == null || Session["CurrentUserIsAdminister"] == null)
 {
     <hr />
     <p style="text-align:center">
-        <a href="~/Home/Login" class="btn btn-default">Please Login Before operation</a>
+        <button type="button" class="btn btn-outline-primary" style="font-size:24px; width:400px; height:100px">@Html.ActionLink("Please Login Before operation", "Login", "Home")</button>
     </p>
 }
 else
@@ -24,5 +24,8 @@ else
     <p style="text-align:center">
         <button type="button" class="btn btn-outline-primary" style="font-size:24px; width:200px; height:100px">@Html.ActionLink("Consumption", "Consumption")</button>
         <button type="button" class="btn btn-outline-primary" style="font-size:24px; width:200px; height:100px">@Html.ActionLink("Search", "Search")</button>
+    </p>
+    <p style="text-align:center">
+        <button type="button" class="btn btn-outline-primary" style="font-size:24px; width:200px; height:100px">@Html.ActionLink("Person Record", "PersonRecord")</button>
     </p>
 }

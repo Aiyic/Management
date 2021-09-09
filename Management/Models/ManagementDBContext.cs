@@ -12,7 +12,7 @@ namespace Management.Models
         public DbSet<Goods.Goods> Goods { get; set; }
         public DbSet<Person.Person> Persons { get; set; }
         public DbSet<Record.Record> Records { get; set; }
-/*
+
         public ManagementDBContext()
         {
             //添加MigrateDatabaseToLatestVersion数据库初始化器
@@ -22,6 +22,6 @@ namespace Management.Models
         {
             base.OnModelCreating(modelBuilder);
         }
-*/
+
     }
 }

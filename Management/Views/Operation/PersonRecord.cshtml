@@ -1,0 +1,71 @@
+﻿
+@model IEnumerable<Management.Models.Record.Record>
+
+@{
+    ViewBag.Title = "PersonRecord";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">PersonRecord</h2>
+
+<hr />
+
+@if (Model != null)
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RecordId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GoodId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OperationType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OperationNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OperationTime)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RecordId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GoodId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OperationType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OperationNum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OperationTime)
+                </td>
+            </tr>
+        }
+    </table>
+}
+
+<hr />
+<p style="text-align:center">
+    <button type="button" class="btn btn-outline-primary">@Html.ActionLink("Back to Home", "Index")</button>
+</p>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

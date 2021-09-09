@@ -166,11 +166,7 @@ namespace Management.Controllers
             }
             return View(record);
         }
-
-
-
-
-
+        
         // GET: Operation/Search
         public ActionResult Search()
         {
@@ -197,6 +193,29 @@ namespace Management.Controllers
                     return RedirectToAction("Info", "Home", new { Info = "Goods Name " + GoodsName + " Does Not Exist." });
             }
             return View(goodsinfo.ToList<Goods>());
+        }
+
+
+        // GET: Operation/PersonRecord
+        public ActionResult PersonRecord()
+        {
+            if (Session["CurrentUserId"] != null && Session["CurrentUserIsAdminister"] != null)
+            {
+                int CurrentUserId = (int)Session["CurrentUserId"];
+                IQueryable<Record> person_record = null;
+                person_record =
+                    from Record in db.Records
+                    where Record.PersonId == CurrentUserId
+                    select Record;
+
+                if (person_record == null)
+                    return RedirectToAction("Info", "Home", new { Info = "User " + Session["CurrentUserId"] + " Has No Records." });
+
+                return View(person_record.ToList<Record>());
+            }
+            else
+                return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
+
         }
     }
 }
