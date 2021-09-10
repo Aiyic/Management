@@ -8,7 +8,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body background="~/Static/Image/background.jpg" style="background-repeat: no-repeat;background-size: 100% 100%" >
+<body  >
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -52,8 +52,12 @@
         @RenderBody()
         <footer style="position:absolute;bottom:0;width:100%;height:100px">
             <hr />
-            <p>&copy; @DateTime.Now.Year - 办公用品管理系统</p>
+            <p style="margin-left:32%">&copy; @DateTime.Now.Year - 办公用品管理系统</p>
         </footer>
+    </div>
+
+    <div>
+        <img src="~/Static/Image/background.jpg" alt="Alternate Text" id="my_bgc" style="width:100%; position:absolute;z-index:-1;top:0;height:100%;opacity:0.4"/>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
