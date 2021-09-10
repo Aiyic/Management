@@ -5,12 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 style="text-align:center">Details</h2>
+<h2 style="margin-bottom:70px">Details</h2>
 
 <div >
-    <h4 style="text-align:center">Person</h4>
+    <h4>Person</h4>
     <hr />
-    <dl class="dl-horizontal" style="padding-left:402px">
+    <dl class="dl-horizontal" >
         <dt>
             @Html.DisplayNameFor(model => model.PersonId)
         </dt>
@@ -61,7 +61,7 @@
 
     </dl>
 </div>
-<p style="text-align:center">
+<p>
     <button type="button" class="btn btn-outline-primary">@Html.ActionLink("Edit", "Edit", new { id = Model.PersonId })</button>
     <button type="button" class="btn btn-outline-primary">@Html.ActionLink("Back to List", "Index")</button>
 </p>

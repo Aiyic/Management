@@ -23,7 +23,7 @@ namespace Management.Controllers
                 if ((bool)Session["CurrentUserIsAdminister"])
                     return View(db.Records.ToList());
                 else
-                    return RedirectToAction("info", "Home", new { Info = "Accout " + Session["CurrentUserId"] + " Is Not Administer" });
+                    return RedirectToAction("info", "Home", new { Info = "account " + Session["CurrentUserId"] + " Is Not Administer" });
             }
             else
                 return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
@@ -48,7 +48,7 @@ namespace Management.Controllers
                     return View(record);
                 }
                 else
-                    return RedirectToAction("info", "Home", new { Info = "Accout " + Session["CurrentUserId"] + " Is Not Administer" });
+                    return RedirectToAction("info", "Home", new { Info = "account " + Session["CurrentUserId"] + " Is Not Administer" });
             }
             else
                 return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
@@ -62,7 +62,7 @@ namespace Management.Controllers
                 if ((bool)Session["CurrentUserIsAdminister"])
                     return View();
                 else
-                    return RedirectToAction("info", "Home", new { Info = "Accout " + Session["CurrentUserId"] + " Is Not Administer" });
+                    return RedirectToAction("info", "Home", new { Info = "account " + Session["CurrentUserId"] + " Is Not Administer" });
             }
             else
                 return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
@@ -103,7 +103,7 @@ namespace Management.Controllers
                     return View(record);
                 }
                 else
-                    return RedirectToAction("info", "Home", new { Info = "Accout " + Session["CurrentUserId"] + " Is Not Administer" });
+                    return RedirectToAction("info", "Home", new { Info = "account " + Session["CurrentUserId"] + " Is Not Administer" });
             }
             else
                 return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
@@ -142,7 +142,7 @@ namespace Management.Controllers
                     return View(record);
                 }
                 else
-                    return RedirectToAction("info", "Home", new { Info = "Accout " + Session["CurrentUserId"] + " Is Not Administer" });
+                    return RedirectToAction("info", "Home", new { Info = "account " + Session["CurrentUserId"] + " Is Not Administer" });
             }
             else
                 return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });

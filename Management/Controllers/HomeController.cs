@@ -65,7 +65,7 @@ namespace Management.Controllers
             }
             else
             {
-                return RedirectToAction("info", new { Info = "Accout " + person.PersonId + " Login Failed" });
+                return RedirectToAction("info", new { Info = "account " + person.PersonId + " Login Failed" });
             }
         }
 
