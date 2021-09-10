@@ -54,12 +54,13 @@ namespace Management.Controllers
         }
 
 /********************************************** 调试用版本 **************************************/
-        // GET: People/Create
+/*      
+            // GET: People/Create
         public ActionResult Create()
         {
             return View();
         }
-/*
+*/
         // GET: People/Create
         public ActionResult Create()
         {
@@ -73,7 +74,7 @@ namespace Management.Controllers
             else
                 return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
         }
-*/
+
 
         // POST: People/Create
         [HttpPost]
