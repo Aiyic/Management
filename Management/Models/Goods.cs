@@ -8,9 +8,18 @@ using System.Web;
 
 namespace Management.Models.Goods
 {
+    public enum GoodsType
+    {
+        [Display(Name = "Borrow")]
+        Borrow = 0,
+        [Display(Name = "Consumption")]
+        Consumption = 1
+    }
+
     public class Goods
     {
         [Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int GoodsId { get; set; }
 
         [Required]
@@ -23,6 +32,9 @@ namespace Management.Models.Goods
         [Required]
         [Range(0, 100000000)]
         public double GoodsPrice { get; set; }
+
+        [Required]
+        public GoodsType GoodsType { get; set; }
 
         public DateTime GoodsBuyTime { get; set; }
     }

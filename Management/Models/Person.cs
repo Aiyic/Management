@@ -12,6 +12,7 @@ namespace Management.Models.Person
     public class Person
     {
         [Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int PersonId { get; set; }
 
         [Required]

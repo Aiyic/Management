@@ -44,11 +44,11 @@ namespace Management.Migrations
 
             var goods = new List<Goods>
             {
-                new Goods {GoodsName = "Pen", GoodsNum = 10, GoodsPrice = 5, GoodsBuyTime =  DateTime.Parse("2021-09-08")},
-                new Goods {GoodsName = "A4 Paper", GoodsNum = 10000, GoodsPrice = 0.01, GoodsBuyTime =  DateTime.Parse("2021-09-08")},
-                new Goods {GoodsName = "Disktop Folder", GoodsNum = 100, GoodsPrice = 9.9, GoodsBuyTime =  DateTime.Parse("2021-09-08")},
-                new Goods {GoodsName = "Calculator", GoodsNum = 100, GoodsPrice = 19.9, GoodsBuyTime =  DateTime.Parse("2021-09-08")},
-                new Goods {GoodsName = "Scissors", GoodsNum = 10, GoodsPrice = 4.8, GoodsBuyTime =  DateTime.Parse("2021-09-08")}
+                new Goods {GoodsName = "Pen", GoodsNum = 10, GoodsPrice = 5, GoodsType = GoodsType.Consumption, GoodsBuyTime =  DateTime.Parse("2021-09-08")},
+                new Goods {GoodsName = "A4 Paper", GoodsNum = 10000, GoodsPrice = 0.01, GoodsType = GoodsType.Consumption, GoodsBuyTime =  DateTime.Parse("2021-09-08")},
+                new Goods {GoodsName = "Disktop Folder", GoodsNum = 100, GoodsPrice = 9.9, GoodsType = GoodsType.Borrow, GoodsBuyTime =  DateTime.Parse("2021-09-08")},
+                new Goods {GoodsName = "Calculator", GoodsNum = 100, GoodsPrice = 19.9, GoodsType = GoodsType.Borrow, GoodsBuyTime =  DateTime.Parse("2021-09-08")},
+                new Goods {GoodsName = "Scissors", GoodsNum = 10, GoodsPrice = 4.8, GoodsType = GoodsType.Borrow, GoodsBuyTime =  DateTime.Parse("2021-09-08")}
             };
             goods.ForEach(s => context.Goods.AddOrUpdate(p => p.GoodsName, s));
             context.SaveChanges();

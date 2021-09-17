@@ -37,6 +37,17 @@
             @Html.ValidationMessageFor(model => model.GoodsPrice, "", new { @class = "text-danger" })
         </div>
     </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.GoodsType, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <select class="form-control" name="OperationType">
+                <option label="Select Operation" selected="selected" style="display : none"></option>
+                <option label="Borrow" value=0></option>
+                <option label="Consumption" value=1></option>
+            </select>
+            @Html.ValidationMessageFor(model => model.GoodsType, "", new { @class = "text-danger" })
+        </div>
+    </div>
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">

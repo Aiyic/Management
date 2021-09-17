@@ -26,6 +26,7 @@ namespace Management.Models.Record
     public class Record
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int RecordId { get; set; }
         
         [Required]
