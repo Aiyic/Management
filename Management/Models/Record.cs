@@ -17,16 +17,16 @@ namespace Management.Models.Record
     {
         [Display(Name = "Borrow")]
         Borrow =0,
-        [Display(Name = "Return")]
-        Return =1,
         [Display(Name = "Consumption")]
-        Consumption =2
+        Consumption =1,
+        [Display(Name = "Return")]
+        Return =2
     }
     
     public class Record
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int RecordId { get; set; }
         
         [Required]

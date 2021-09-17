@@ -143,6 +143,10 @@
     <Compile Include="Migrations\202109170801202_add_goods_type.designer.cs">
       <DependentUpon>202109170801202_add_goods_type.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109170830397_add_goods_type2.cs" />
+    <Compile Include="Migrations\202109170830397_add_goods_type2.designer.cs">
+      <DependentUpon>202109170830397_add_goods_type2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Goods.cs" />
     <Compile Include="Models\ManagementDBContext.cs" />
@@ -206,7 +210,6 @@
     <Content Include="Views\Goods\Create.cshtml" />
     <Content Include="Views\Goods\Delete.cshtml" />
     <Content Include="Views\Goods\Details.cshtml" />
-    <Content Include="Views\Goods\Edit.cshtml" />
     <Content Include="Views\Goods\Index.cshtml" />
     <Content Include="Views\Records\Create.cshtml" />
     <Content Include="Views\Records\Delete.cshtml" />
@@ -220,6 +223,7 @@
     <Content Include="Views\Operation\Search.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Operation\PersonRecord.cshtml" />
+    <Content Include="Views\Goods\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -243,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109170801202_add_goods_type.resx">
       <DependentUpon>202109170801202_add_goods_type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109170830397_add_goods_type2.resx">
+      <DependentUpon>202109170830397_add_goods_type2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

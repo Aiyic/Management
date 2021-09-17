@@ -8,7 +8,7 @@ using System.Web;
 
 namespace Management.Models.Goods
 {
-    public enum GoodsType
+    public enum GoodType
     {
         [Display(Name = "Borrow")]
         Borrow = 0,
@@ -34,7 +34,7 @@ namespace Management.Models.Goods
         public double GoodsPrice { get; set; }
 
         [Required]
-        public GoodsType GoodsType { get; set; }
+        public GoodType GoodsType { get; set; }  //0:jie 1:huan 2:xiaohao
 
         public DateTime GoodsBuyTime { get; set; }
     }

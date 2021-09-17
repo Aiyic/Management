@@ -46,9 +46,9 @@
             <div class="col-md-10">
                 <select class="form-control" name="OperationType">
                     <option label="Select Operation" selected="selected" style="display : none"></option>
-                    <option label="Borrow" value=0></option>
-                    <option label="Return" value=1></option>
-                    <option label="Consumption" value=2></option>
+                    <option label="Borrow" value=@Management.Models.Record.OpType.Borrow></option>
+                    <option label="Consumption" value=@Management.Models.Record.OpType.Consumption></option>
+                    <option label="Return" value=@Management.Models.Record.OpType.Return></option>
                 </select>
                 @Html.ValidationMessageFor(model => model.OperationType, "", new { @class = "text-danger" })
             </div>

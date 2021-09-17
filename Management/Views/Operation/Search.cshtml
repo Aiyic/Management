@@ -18,7 +18,7 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="GoodsName">GoodsName</label>
             <div class="col-md-10">
-                <input class="form-control text-box single-line valid" data-val="true" data-val-maxlength="字段 GoodsName 必须是最大长度为“50”的字符串或数组类型。" data-val-maxlength-max="50" data-val-required="GoodsName 字段是必需的。" id="GoodsName" name="GoodsName" type="text" value="" aria-describedby="GoodsName-error" aria-invalid="false">
+                <input class="form-control text-box single-line valid" data-val="false" id="GoodsName" name="GoodsName" type="text" value="" aria-describedby="GoodsName-error" aria-invalid="false">
                 <span class="text-danger field-validation-valid" data-valmsg-for="GoodsName" data-valmsg-replace="true"></span>
             </div>
         </div>
@@ -27,9 +27,8 @@
     <div align="center">
         <input type="submit" value="Search" class="btn btn-default" />
 
-        <a href="~/Operation/Borrow" class="btn btn-default" style="margin-left:30px">Borrow</a>
+        <a href="~/Operation/Borrow" class="btn btn-default" style="margin-left:100px">Borrow</a>
         <a href="~/Operation/Return" class="btn btn-default">Return</a>
-        <a href="~/Operation/Consumption" class="btn btn-default">Consumption</a>
 
     </div>
 }
@@ -53,6 +52,9 @@
                 @Html.DisplayNameFor(model => model.GoodsPrice)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.GoodsType)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.GoodsBuyTime)
             </th>
             <th></th>
@@ -60,26 +62,29 @@
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GoodsId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GoodsName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GoodsNum)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GoodsPrice)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GoodsBuyTime)
-                </td>
-                <td>
-                    @Html.ActionLink("Details", "Details", "Goods", new { id = item.GoodsId }, null)
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GoodsId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GoodsName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GoodsNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GoodsPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GoodsType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GoodsBuyTime)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", "Goods", new { id = item.GoodsId }, null)
+            </td>
+        </tr>
         }
     </table>
 }

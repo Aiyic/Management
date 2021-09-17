@@ -63,7 +63,7 @@ namespace Management.Controllers
         // POST: Goods/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "GoodsName,GoodsNum,GoodsPrice,GoodsType")] Goods goods)
+        public ActionResult Create([Bind(Include = "GoodsName,GoodsNum,GoodsPrice,GoodsType,GoodsBuyTime")] Goods goods)
         {
             try
             {

@@ -46,7 +46,10 @@ namespace Management.Controllers
                     if(goods.GoodsNum < record.OperationNum)
                         return RedirectToAction("Info", "Home", new { Info = "Borrow Num Is More Than Goods Num." });
                     record.PersonId = (int)Session["CurrentUserId"];
-                    record.OperationType = OpType.Borrow;
+                    if(goods.GoodsType==GoodType.Borrow)
+                        record.OperationType = OpType.Borrow;
+                    else if(goods.GoodsType == GoodType.Consumption)
+                        record.OperationType = OpType.Consumption;
                     record.OperationTime = DateTime.Now;
 
                     goods.GoodsNum -= record.OperationNum;
@@ -80,6 +83,9 @@ namespace Management.Controllers
                 Goods goods = db.Goods.Find(record.GoodId);
                 if (goods == null)
                     return RedirectToAction("Info", "Home", new { Info = "Goods Id " + record.GoodId + " Does Not Exist." });
+
+                if (goods.GoodsType == GoodType.Consumption)
+                    return RedirectToAction("Info", "Home", new { Info = "Goods Id " + record.GoodId + " Is Consumption." });
 
                 int CurrentUserId = (int)Session["CurrentUserId"];
                 
