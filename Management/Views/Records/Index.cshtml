@@ -10,55 +10,58 @@
 <p>
     @Html.ActionLink("添加记录", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RecordId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PersonId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GoodId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OperationNum)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OperationType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OperationTime)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RecordId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PersonId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GoodId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OperationNum)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OperationType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OperationTime)
-        </td>
-        <td>
-            @Html.ActionLink("编辑", "Edit", new { id = item.RecordId }) |
-            @Html.ActionLink("详情", "Details", new { id = item.RecordId }) |
-            @Html.ActionLink("删除", "Delete", new { id = item.RecordId })
-        </td>
-    </tr>
-}
+<div style="height: 450px;overflow: auto;">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RecordId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GoodId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OperationNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OperationType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OperationTime)
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RecordId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GoodId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OperationNum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OperationType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OperationTime)
+                </td>
+                <td>
+                    @Html.ActionLink("编辑", "Edit", new { id = item.RecordId }) |
+                    @Html.ActionLink("详情", "Details", new { id = item.RecordId }) |
+                    @Html.ActionLink("删除", "Delete", new { id = item.RecordId })
+                </td>
+            </tr>
+        }
+    </table>
+</div>

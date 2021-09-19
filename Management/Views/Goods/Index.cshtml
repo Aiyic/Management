@@ -10,55 +10,58 @@
 <p>
     @Html.ActionLink("添加商品", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.GoodsId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GoodsName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GoodsNum)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GoodsPrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GoodsType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GoodsBuyTime)
-        </th>
-        <th></th>
-    </tr>
+<div style="height: 450px;overflow: auto;">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GoodsId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GoodsName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GoodsNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GoodsPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GoodsType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GoodsBuyTime)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.GoodsId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GoodsName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GoodsNum)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GoodsPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GoodsType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GoodsBuyTime)
-        </td>
-        <td>
-            @Html.ActionLink("编辑", "Edit", new { id = item.GoodsId }) |
-            @Html.ActionLink("详情", "Details", new { id = item.GoodsId }) |
-            @Html.ActionLink("删除", "Delete", new { id = item.GoodsId })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GoodsId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GoodsName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GoodsNum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GoodsPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GoodsType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GoodsBuyTime)
+                </td>
+                <td>
+                    @Html.ActionLink("编辑", "Edit", new { id = item.GoodsId }) |
+                    @Html.ActionLink("详情", "Details", new { id = item.GoodsId }) |
+                    @Html.ActionLink("删除", "Delete", new { id = item.GoodsId })
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+</div>

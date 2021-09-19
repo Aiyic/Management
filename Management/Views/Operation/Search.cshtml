@@ -37,56 +37,61 @@
 
 @if (Model != null)
 {
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.GoodsId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GoodsName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GoodsNum)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GoodsPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GoodsType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GoodsBuyTime)
-            </th>
-            <th></th>
-        </tr>
+    <div style="height: 230px;overflow: auto;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GoodsId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GoodsName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GoodsNum)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GoodsPrice)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GoodsType)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GoodsBuyTime)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
 
-        @foreach (var item in Model)
-        {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.GoodsId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GoodsName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GoodsNum)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GoodsPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GoodsType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GoodsBuyTime)
-            </td>
-            <td>
-                @Html.ActionLink("详情", "Details", "Goods", new { id = item.GoodsId }, null)
-            </td>
-        </tr>
-        }
-    </table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GoodsId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GoodsName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GoodsNum)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GoodsPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GoodsType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GoodsBuyTime)
+                    </td>
+                    <td>
+                        @Html.ActionLink("详情", "Details", "Goods", new { id = item.GoodsId }, null)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    
 }
 
 <hr />

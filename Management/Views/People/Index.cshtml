@@ -10,61 +10,58 @@
 <p>
     @Html.ActionLink("添加账户", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.PersonId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Password)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Phone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Department)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsAdminister)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+<div style="height: 450px;overflow: auto;">
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PersonId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Password)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Department)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsAdminister)
-            </td>
-            <td>
-                @Html.ActionLink("编辑", "Edit", new { id = item.PersonId }) |
-                @Html.ActionLink("详情", "Details", new { id = item.PersonId }) |
-                @Html.ActionLink("删除", "Delete", new { id = item.PersonId })
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsAdminister)
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsAdminister)
+                </td>
+                <td>
+                    @Html.ActionLink("编辑", "Edit", new { id = item.PersonId }) |
+                    @Html.ActionLink("详情", "Details", new { id = item.PersonId }) |
+                    @Html.ActionLink("删除", "Delete", new { id = item.PersonId })
+                </td>
+            </tr>
+        }
 
-<hr />
-<p style="text-align:center">
-    <button type="button" class="btn btn-outline-primary">@Html.ActionLink("返回主页", "Index", "Home")</button>
-</p>
+    </table>
+</div>

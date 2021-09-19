@@ -17,7 +17,7 @@ namespace Management.Migrations
             // AutomaticMigrationsEnabled = false;
 
             AutomaticMigrationsEnabled = true;//自动迁移为true
-            AutomaticMigrationDataLossAllowed = true;//允许数据丢失,默认生成时没有这一项（不添加这一项时，只在添加/删除实体类时自动生成，如果我们删除了实体类的一个属性就会抛出异常）
+            AutomaticMigrationDataLossAllowed = true;
 
         }
         
@@ -36,7 +36,11 @@ namespace Management.Migrations
                 new Person { Password = "zwz", Name = "zwz",
                     Phone = 248, Department = "g340", IsAdminister = false},
                 new Person { Password = "lk", Name = "lk",
-                    Phone = 279, Department = "g340", IsAdminister = false}
+                    Phone = 279, Department = "g340", IsAdminister = false},
+                new Person { Password = "马云", Name = "马云",
+                    Phone = 279, Department = "阿里", IsAdminister = true},
+                new Person { Password = "马化腾", Name = "马化腾",
+                    Phone = 279, Department = "腾讯", IsAdminister = true}
             };
 
             persons.ForEach(s => context.Persons.AddOrUpdate(p => p.Name, s));
@@ -44,11 +48,14 @@ namespace Management.Migrations
 
             var goods = new List<Goods>
             {
-                new Goods {GoodsName = "Pen", GoodsNum = 10, GoodsPrice = 5, GoodsType = GoodType.消耗品, GoodsBuyTime =  DateTime.Parse("2021-09-08")},
-                new Goods {GoodsName = "A4 Paper", GoodsNum = 10000, GoodsPrice = 0.01, GoodsType = GoodType.消耗品, GoodsBuyTime =  DateTime.Parse("2021-09-08")},
-                new Goods {GoodsName = "Disktop Folder", GoodsNum = 100, GoodsPrice = 9.9, GoodsType = GoodType.借用品, GoodsBuyTime =  DateTime.Parse("2021-09-08")},
-                new Goods {GoodsName = "Calculator", GoodsNum = 100, GoodsPrice = 19.9, GoodsType = GoodType.借用品, GoodsBuyTime =  DateTime.Parse("2021-09-08")},
-                new Goods {GoodsName = "Scissors", GoodsNum = 10, GoodsPrice = 4.8, GoodsType = GoodType.借用品, GoodsBuyTime =  DateTime.Parse("2021-09-08")}
+                new Goods {GoodsName = "中性笔", GoodsNum = 100, GoodsPrice = 2, GoodsType = GoodType.消耗品, GoodsBuyTime =  DateTime.Parse("2021-09-08")},
+                new Goods {GoodsName = "钢笔", GoodsNum = 10, GoodsPrice = 5, GoodsType = GoodType.借用品, GoodsBuyTime =  DateTime.Parse("2021-09-08")},
+                new Goods {GoodsName = "A4纸", GoodsNum = 10000, GoodsPrice = 0.01, GoodsType = GoodType.消耗品, GoodsBuyTime =  DateTime.Parse("2021-09-08")},
+                new Goods {GoodsName = "文件夹", GoodsNum = 100, GoodsPrice = 9.9, GoodsType = GoodType.借用品, GoodsBuyTime =  DateTime.Parse("2021-09-08")},
+                new Goods {GoodsName = "计算机", GoodsNum = 100, GoodsPrice = 19.9, GoodsType = GoodType.借用品, GoodsBuyTime =  DateTime.Parse("2021-09-08")},
+                new Goods {GoodsName = "剪刀", GoodsNum = 10, GoodsPrice = 4.8, GoodsType = GoodType.借用品, GoodsBuyTime =  DateTime.Parse("2021-09-08")},
+                new Goods {GoodsName = "订书机", GoodsNum = 10, GoodsPrice = 9.8, GoodsType = GoodType.借用品, GoodsBuyTime =  DateTime.Parse("2021-09-08")},
+                new Goods {GoodsName = "订书针", GoodsNum = 10000, GoodsPrice = 0.1, GoodsType = GoodType.消耗品, GoodsBuyTime =  DateTime.Parse("2021-09-08")}
             };
             goods.ForEach(s => context.Goods.AddOrUpdate(p => p.GoodsName, s));
             context.SaveChanges();

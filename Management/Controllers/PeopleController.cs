@@ -101,33 +101,26 @@ namespace Management.Controllers
         // GET: People/Edit/5
         public ActionResult Edit(int? id)
         {
-            try
+            if (Session["CurrentUserId"] != null && Session["CurrentUserIsAdminister"] != null)
             {
-                if (Session["CurrentUserId"] != null && Session["CurrentUserIsAdminister"] != null)
+                if ((bool)Session["CurrentUserIsAdminister"])
                 {
-                    if ((bool)Session["CurrentUserIsAdminister"])
+                    if (id == null)
                     {
-                        if (id == null)
-                        {
-                            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                        }
-                        Person person = db.Persons.Find(id);
-                        if (person == null)
-                        {
-                            return HttpNotFound();
-                        }
-                        return View(person);
+                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                     }
-                    else
-                        return RedirectToAction("info", "Home", new { Info = "账号 " + Session["CurrentUserId"] + " 不是管理员" });
+                    Person person = db.Persons.Find(id);
+                    if (person == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    return View(person);
                 }
                 else
-                    return RedirectToAction("Info", "Home", new { Info = "请先登录" });
+                    return RedirectToAction("info", "Home", new { Info = "账号 " + Session["CurrentUserId"] + " 不是管理员" });
             }
-            catch
-            {
-                return RedirectToAction("Info", "Home", new { Info = "用户名已存在" });
-            }
+            else
+                return RedirectToAction("Info", "Home", new { Info = "请先登录" });
         }
 
 /********************************************** 修改IsAdminister **************************************/
@@ -135,15 +128,23 @@ namespace Management.Controllers
         // POST: People/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PersonId,Password,Name,Phone,Department")] Person person)
+        public ActionResult Edit([Bind(Include = "PersonId,Password,Name,Phone,Department,IsAdminister")] Person person)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(person).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(person).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(person);
             }
-            return View(person);
+            catch
+            {
+                return RedirectToAction("Info", "Home", new { Info = "用户名已存在" });
+            }
+            
         }
 
         // GET: People/Delete/5
