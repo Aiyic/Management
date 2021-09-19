@@ -16,11 +16,11 @@ namespace Management.Models.Record
     public enum OpType
     {
         [Display(Name = "借用")]
-        Borrow =0,
+        借用 = 0,
         [Display(Name = "消耗")]
-        Consumption =1,
+        消耗 = 1,
         [Display(Name = "归还")]
-        Return =2
+        归还 = 2
     }
     
     public class Record

@@ -46,10 +46,10 @@ namespace Management.Controllers
                     if(goods.GoodsNum < record.OperationNum)
                         return RedirectToAction("Info", "Home", new { Info = "借用数量大于商品数量！！！" });
                     record.PersonId = (int)Session["CurrentUserId"];
-                    if(goods.GoodsType==GoodType.Borrow)
-                        record.OperationType = OpType.Borrow;
-                    else if(goods.GoodsType == GoodType.Consumption)
-                        record.OperationType = OpType.Consumption;
+                    if(goods.GoodsType==GoodType.借用品)
+                        record.OperationType = OpType.借用;
+                    else if(goods.GoodsType == GoodType.消耗品)
+                        record.OperationType = OpType.消耗;
                     record.OperationTime = DateTime.Now;
 
                     goods.GoodsNum -= record.OperationNum;
@@ -84,7 +84,7 @@ namespace Management.Controllers
                 if (goods == null)
                     return RedirectToAction("Info", "Home", new { Info = "商品编号 " + record.GoodId + " 不存在" });
 
-                if (goods.GoodsType == GoodType.Consumption)
+                if (goods.GoodsType == GoodType.消耗品)
                     return RedirectToAction("Info", "Home", new { Info = "商品编号 " + record.GoodId + " 是消耗品" });
 
                 int CurrentUserId = (int)Session["CurrentUserId"];
@@ -92,14 +92,14 @@ namespace Management.Controllers
                 var BorrowRecords =
                     from Record in db.Records
                     where Record.PersonId == CurrentUserId
-                        && Record.OperationType == OpType.Borrow
+                        && Record.OperationType == OpType.借用
                         && Record.GoodId == record.GoodId
                     select new { number = Record.OperationNum };
 
                 var ReturnRecords =
                     from Record in db.Records
                     where Record.PersonId == CurrentUserId
-                        && Record.OperationType == OpType.Return
+                        && Record.OperationType == OpType.借用
                         && Record.GoodId == record.GoodId
                     select new { number = Record.OperationNum };
 
@@ -123,7 +123,7 @@ namespace Management.Controllers
                     return RedirectToAction("Info", "Home", new { Info = "This User " + Session["CurrentUserId"] + " Return Num Is More Than Borrow Num" });
                 }
                 record.PersonId = (int)Session["CurrentUserId"];
-                record.OperationType = OpType.Return;
+                record.OperationType = OpType.归还;
                 record.OperationTime = DateTime.Now;
 
                 goods.GoodsNum += record.OperationNum;
@@ -157,7 +157,7 @@ namespace Management.Controllers
                 if (goods != null)
                 {
                     record.PersonId = (int)Session["CurrentUserId"];
-                    record.OperationType = OpType.Consumption;
+                    record.OperationType = OpType.消耗;
                     record.OperationTime = DateTime.Now;
 
                     goods.GoodsNum -= record.OperationNum;

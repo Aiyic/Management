@@ -81,38 +81,53 @@ namespace Management.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "PersonId,Password,Name,Phone,Department,IsAdminister")] Person person)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Persons.Add(person);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Persons.Add(person);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(person);
             }
-            return View(person);
+            catch
+            {
+                return RedirectToAction("Info", "Home", new { Info = "用户名已被注册" });
+            }
+            
         }
 
         // GET: People/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (Session["CurrentUserId"] != null && Session["CurrentUserIsAdminister"] != null)
+            try
             {
-                if ((bool)Session["CurrentUserIsAdminister"])
+                if (Session["CurrentUserId"] != null && Session["CurrentUserIsAdminister"] != null)
                 {
-                    if (id == null)
+                    if ((bool)Session["CurrentUserIsAdminister"])
                     {
-                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                        if (id == null)
+                        {
+                            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                        }
+                        Person person = db.Persons.Find(id);
+                        if (person == null)
+                        {
+                            return HttpNotFound();
+                        }
+                        return View(person);
                     }
-                    Person person = db.Persons.Find(id);
-                    if (person == null)
-                    {
-                        return HttpNotFound();
-                    }
-                    return View(person);
+                    else
+                        return RedirectToAction("info", "Home", new { Info = "账号 " + Session["CurrentUserId"] + " 不是管理员" });
                 }
                 else
-                    return RedirectToAction("info", "Home", new { Info = "账号 " + Session["CurrentUserId"] + " 不是管理员" });
+                    return RedirectToAction("Info", "Home", new { Info = "请先登录" });
             }
-            else
-                return RedirectToAction("Info", "Home", new { Info = "请先登录" });
+            catch
+            {
+                return RedirectToAction("Info", "Home", new { Info = "用户名已存在" });
+            }
         }
 
 /********************************************** 修改IsAdminister **************************************/

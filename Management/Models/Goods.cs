@@ -11,9 +11,9 @@ namespace Management.Models.Goods
     public enum GoodType
     {
         [Display(Name = "借用品")]
-        Borrow = 0,
+        借用品 = 0,
         [Display(Name = "消耗品")]
-        Consumption = 1
+        消耗品 = 1
     }
 
     public class Goods

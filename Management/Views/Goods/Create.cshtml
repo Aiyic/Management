@@ -42,8 +42,8 @@
         <div class="col-md-10">
             <select class="form-control" name="GoodsType">
                 <option label="请选择" selected="selected" style="display : none"></option>
-                <option label="借用品" value=@Management.Models.Goods.GoodType.Borrow></option>
-                <option label="消耗品" value=@Management.Models.Goods.GoodType.Consumption></option>
+                <option label="借用品" value=@Management.Models.Goods.GoodType.借用品></option>
+                <option label="消耗品" value=@Management.Models.Goods.GoodType.消耗品></option>
             </select>
             @Html.ValidationMessageFor(model => model.GoodsType, "", new { @class = "text-danger" })
         </div>

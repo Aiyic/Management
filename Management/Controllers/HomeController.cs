@@ -44,29 +44,41 @@ namespace Management.Controllers
         // POST: Home/Login
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login([Bind(Include = "PersonId,Password")] Person person)
+        public ActionResult Login([Bind(Include = "PersonId,Password,Name")] Person person)
         {
-            //if (ModelState.IsValid)
-            //{
-                var userinfo = db.Persons.FirstOrDefault(u => u.PersonId == person.PersonId && u.Password == person.Password);
-
+            Person userinfo;
+            ViewBag.LoginState = false;
+            if (int.TryParse(person.Name,out int id))
+            {
+                person.PersonId = id;
+                userinfo = db.Persons.FirstOrDefault(u => u.PersonId == person.PersonId && u.Password == person.Password);
                 if (userinfo != null)
-                {
                     ViewBag.LoginState = true;
-                }
                 else
-                    ViewBag.LoginState = false;
-            //}
+                {
+                    userinfo = db.Persons.FirstOrDefault(u => u.Name == person.Name && u.Password == person.Password);
+                    if (userinfo != null)
+                        ViewBag.LoginState = true;
+                }
+            }
+            else
+            {
+                userinfo = db.Persons.FirstOrDefault(u => u.Name == person.Name && u.Password == person.Password);
+                if(userinfo != null)
+                    ViewBag.LoginState = true;
+            }
+            
             if (ViewBag.LoginState)
             {
                 Session["CurrentUserId"] = userinfo.PersonId;
                 Session["CurrentUserIsAdminister"] = userinfo.IsAdminister;
-                return RedirectToAction("info", new { Info = ((bool)Session["CurrentUserIsAdminister"] ? "管理员 :" : "普通用户 :")+ Session["CurrentUserId"].ToString() + " 登录成功" });
+                return RedirectToAction("info", new { Info = ((bool)Session["CurrentUserIsAdminister"] ? "管理员 : " : "普通用户 : ")+ Session["CurrentUserId"].ToString() + " 登录成功" });
             }
             else
             {
-                return RedirectToAction("info", new { Info = "账号 " + person.PersonId + " 登录失败" });
+                return RedirectToAction("info", new { Info = "用户 " + person.Name + " 登录失败" });
             }
+            
         }
 
 
@@ -81,17 +93,25 @@ namespace Management.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register([Bind(Include = "Password,Name,Phone,Department")] Person person)
         {
-            if (ModelState.IsValid)
+            try
             {
-                person.IsAdminister = false;
-                db.Persons.Add(person);
-                db.SaveChanges();
-                return RedirectToAction("Info", new { info = ("你注册的账户是: " + person.PersonId) });
+                if (ModelState.IsValid)
+                {
+                    person.IsAdminister = false;
+                    db.Persons.Add(person);
+                    db.SaveChanges();
+                    return RedirectToAction("Info", new { info = ("你注册的账户是: " + person.PersonId) });
+                }
+                else
+                {
+                    return RedirectToAction("Info", new { info = "注册失败" });
+                }
             }
-            else
+            catch
             {
-                return RedirectToAction("Info", new { info = "注册失败"});
+                return RedirectToAction("Info", new { info = "用户名已被注册" });
             }
+           
         }
 
 

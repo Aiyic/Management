@@ -147,6 +147,10 @@
     <Compile Include="Migrations\202109170830397_add_goods_type2.designer.cs">
       <DependentUpon>202109170830397_add_goods_type2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109190921436_unique_name.cs" />
+    <Compile Include="Migrations\202109190921436_unique_name.designer.cs">
+      <DependentUpon>202109190921436_unique_name.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Goods.cs" />
     <Compile Include="Models\ManagementDBContext.cs" />
@@ -250,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109170830397_add_goods_type2.resx">
       <DependentUpon>202109170830397_add_goods_type2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109190921436_unique_name.resx">
+      <DependentUpon>202109190921436_unique_name.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

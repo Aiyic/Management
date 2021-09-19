@@ -21,7 +21,8 @@ namespace Management.Models.Person
         public string Password { get; set; }
         [Required]
         [MaxLength(50)]
-        [Display(Name = "姓名")]
+        [Display(Name = "用户名")]
+        [Index(IsUnique = true)]
         public string Name { get; set; }
         [Required]
         [Display(Name = "电话")]
