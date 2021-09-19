@@ -61,11 +61,11 @@ namespace Management.Controllers
             {
                 Session["CurrentUserId"] = userinfo.PersonId;
                 Session["CurrentUserIsAdminister"] = userinfo.IsAdminister;
-                return RedirectToAction("info", new { Info = ((bool)Session["CurrentUserIsAdminister"] ? "Administer :" : "General User :")+ Session["CurrentUserId"].ToString() + " Login" });
+                return RedirectToAction("info", new { Info = ((bool)Session["CurrentUserIsAdminister"] ? "管理员 :" : "普通用户 :")+ Session["CurrentUserId"].ToString() + " 登录成功" });
             }
             else
             {
-                return RedirectToAction("info", new { Info = "account " + person.PersonId + " Login Failed" });
+                return RedirectToAction("info", new { Info = "账号 " + person.PersonId + " 登录失败" });
             }
         }
 
@@ -86,11 +86,11 @@ namespace Management.Controllers
                 person.IsAdminister = false;
                 db.Persons.Add(person);
                 db.SaveChanges();
-                return RedirectToAction("Info", new { info = ("Your Register Account Number Is: " + person.PersonId) });
+                return RedirectToAction("Info", new { info = ("你注册的账户是: " + person.PersonId) });
             }
             else
             {
-                return RedirectToAction("Info", new { info = "Register Failed"});
+                return RedirectToAction("Info", new { info = "注册失败"});
             }
         }
 
@@ -113,7 +113,7 @@ namespace Management.Controllers
                 return View(person);
             }
             else
-                return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
+                return RedirectToAction("Info", "Home", new { Info = "请先登录" });
         }
 
         /********************************************** 修改IsAdminister **************************************/

@@ -23,7 +23,7 @@ namespace Management.Controllers
                 return View(db.Goods.ToList());
             }
             else
-                return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
+                return RedirectToAction("Info", "Home", new { Info = "请先登录" });
         }
 
         // GET: Goods/Details/5
@@ -43,7 +43,7 @@ namespace Management.Controllers
                 return View(goods);
             }
             else
-                return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
+                return RedirectToAction("Info", "Home", new { Info = "请先登录" });
         }
 
         // GET: Goods/Create
@@ -54,10 +54,10 @@ namespace Management.Controllers
                 if ((bool)Session["CurrentUserIsAdminister"])
                     return View();
                 else
-                    return RedirectToAction("info", "Home", new { Info = "account " + Session["CurrentUserId"] + " Is Not Administer" });
+                    return RedirectToAction("info", "Home", new { Info = "账号 " + Session["CurrentUserId"] + " 不是管理员" });
             }
             else
-                return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
+                return RedirectToAction("Info", "Home", new { Info = "请先登录" });
         }
 
         // POST: Goods/Create
@@ -77,7 +77,7 @@ namespace Management.Controllers
             }
             catch
             {
-                return RedirectToAction("info", "Home", new { Info = "Add Err" });
+                return RedirectToAction("info", "Home", new { Info = "添加出错" });
             }
             return View(goods);
         }
@@ -101,10 +101,10 @@ namespace Management.Controllers
                     return View(goods);
                 }
                 else
-                    return RedirectToAction("info", "Home", new { Info = "account " + Session["CurrentUserId"] + " Is Not Administer" });
+                    return RedirectToAction("info", "Home", new { Info = "账号 " + Session["CurrentUserId"] + " 不是管理员" });
             }
             else
-                return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
+                return RedirectToAction("Info", "Home", new { Info = "请先登录" });
         }
 
         // POST: Goods/Edit/5
@@ -124,7 +124,7 @@ namespace Management.Controllers
             }
             catch
             {
-                return RedirectToAction("info", "Home", new { Info = "Edit Err" });
+                return RedirectToAction("info", "Home", new { Info = "编辑出错" });
             }
         }
 
@@ -147,10 +147,10 @@ namespace Management.Controllers
                     return View(goods);
                 }
                 else
-                    return RedirectToAction("info", "Home", new { Info = "account " + Session["CurrentUserId"] + " Is Not Administer" });
+                    return RedirectToAction("info", "Home", new { Info = "账号 " + Session["CurrentUserId"] + " 不是管理员" });
             }
             else
-                return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
+                return RedirectToAction("Info", "Home", new { Info = "请先登录" });
         }
 
         // POST: Goods/Delete/5

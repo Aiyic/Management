@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<Management.Models.Person.Person>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "账户列表";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 style="margin-bottom:70px">Index</h2>
+<h2 style="margin-bottom:70px">账户列表</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("添加账户", "Create")
 </p>
 <table class="table">
     <tr>
@@ -55,9 +55,9 @@
                 @Html.DisplayFor(modelItem => item.IsAdminister)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.PersonId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.PersonId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.PersonId })
+                @Html.ActionLink("编辑", "Edit", new { id = item.PersonId }) |
+                @Html.ActionLink("详情", "Details", new { id = item.PersonId }) |
+                @Html.ActionLink("删除", "Delete", new { id = item.PersonId })
             </td>
         </tr>
     }
@@ -66,5 +66,5 @@
 
 <hr />
 <p style="text-align:center">
-    <button type="button" class="btn btn-outline-primary">@Html.ActionLink("Back to Home", "Index", "Home")</button>
+    <button type="button" class="btn btn-outline-primary">@Html.ActionLink("返回主页", "Index", "Home")</button>
 </p>

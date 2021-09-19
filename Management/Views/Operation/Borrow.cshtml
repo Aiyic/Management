@@ -1,11 +1,11 @@
 ﻿@model Management.Models.Record.Record
 
 @{
-    ViewBag.Title = "Borrow";
+    ViewBag.Title = "借用商品";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 style="margin-bottom:70px">Borrow</h2>
+<h2 style="margin-bottom:70px">借用商品</h2>
 <hr />
 
 @using Management.Models.Record
@@ -36,7 +36,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10" style="padding-left:103px">
-                <input type="submit" value="Borrow" class="btn btn-default" />
+                <input type="submit" value="借用" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -44,7 +44,7 @@
 
 <hr />
 <p style="text-align:center">
-    <button type="button" class="btn btn-outline-primary">@Html.ActionLink("Back to Home", "Index")</button>
+    <button type="button" class="btn btn-outline-primary">@Html.ActionLink("返回主页", "Index")</button>
 </p>
 
 @section Scripts {

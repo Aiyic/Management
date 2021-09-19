@@ -13,18 +13,24 @@ namespace Management.Models.Person
     {
         [Key]
         //[DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Display(Name = "账户编号")]
         public int PersonId { get; set; }
 
         [Required]
+        [Display(Name = "密码")]
         public string Password { get; set; }
         [Required]
         [MaxLength(50)]
+        [Display(Name = "姓名")]
         public string Name { get; set; }
         [Required]
+        [Display(Name = "电话")]
         public long Phone { get; set; }
         [Required]
+        [Display(Name = "部门")]
         public string Department { get; set; }
-        
+
+        [Display(Name = "是否为管理员")]
         public bool IsAdminister { get; set; }
 
     }

@@ -2,11 +2,11 @@
 @model IEnumerable<Management.Models.Goods.Goods>
 
 @{
-    ViewBag.Title = "Search";
+    ViewBag.Title = "查找";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 style="margin-bottom:70px">Search</h2>
+<h2 style="margin-bottom:70px">查找</h2>
 <hr />
 
 @using (Html.BeginForm())
@@ -16,7 +16,7 @@
     <div class="form-horizontal" style="padding-left:300px">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            <label class="control-label col-md-2" for="GoodsName">GoodsName</label>
+            <label class="control-label col-md-2" for="GoodsName">商品名称</label>
             <div class="col-md-10">
                 <input class="form-control text-box single-line valid" data-val="false" id="GoodsName" name="GoodsName" type="text" value="" aria-describedby="GoodsName-error" aria-invalid="false">
                 <span class="text-danger field-validation-valid" data-valmsg-for="GoodsName" data-valmsg-replace="true"></span>
@@ -25,10 +25,10 @@
     </div>
     <hr />
     <div align="center">
-        <input type="submit" value="Search" class="btn btn-default" />
+        <input type="submit" value="查找" class="btn btn-default" />
 
-        <a href="~/Operation/Borrow" class="btn btn-default" style="margin-left:100px">Borrow</a>
-        <a href="~/Operation/Return" class="btn btn-default">Return</a>
+        <a href="~/Operation/Borrow" class="btn btn-default" style="margin-left:100px">借用</a>
+        <a href="~/Operation/Return" class="btn btn-default">归还</a>
 
     </div>
 }
@@ -82,7 +82,7 @@
                 @Html.DisplayFor(modelItem => item.GoodsBuyTime)
             </td>
             <td>
-                @Html.ActionLink("Details", "Details", "Goods", new { id = item.GoodsId }, null)
+                @Html.ActionLink("详情", "Details", "Goods", new { id = item.GoodsId }, null)
             </td>
         </tr>
         }
@@ -93,8 +93,8 @@
 
 
 
-<p style="text-align:right">
-    <button type="button" class="btn btn-outline-primary">@Html.ActionLink("Back to Home", "Index")</button>
+<p style="text-align:center">
+    <button type="button" class="btn btn-outline-primary">@Html.ActionLink("返回主页", "Index")</button>
 </p>
 
 @section Scripts {

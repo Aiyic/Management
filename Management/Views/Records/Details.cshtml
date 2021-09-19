@@ -1,14 +1,14 @@
 ﻿@model Management.Models.Record.Record
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "记录详情";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 style="margin-bottom:70px">Details</h2>
+<h2 style="margin-bottom:70px">记录详情</h2>
 
 <div>
-    <h4>Record</h4>
+    <h4>记录</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -62,6 +62,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.RecordId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("编辑", "Edit", new { id = Model.RecordId }) |
+    @Html.ActionLink("返回列表", "Index")
 </p>

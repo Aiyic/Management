@@ -30,7 +30,7 @@ namespace Management.Controllers
             if (Session["CurrentUserId"] != null && Session["CurrentUserIsAdminister"] != null)
                 return View();
             else
-                return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
+                return RedirectToAction("Info", "Home", new { Info = "请先登录" });
         }
 
         // POST: Records/Borrow
@@ -44,7 +44,7 @@ namespace Management.Controllers
                 if (goods != null)
                 {
                     if(goods.GoodsNum < record.OperationNum)
-                        return RedirectToAction("Info", "Home", new { Info = "Borrow Num Is More Than Goods Num." });
+                        return RedirectToAction("Info", "Home", new { Info = "借用数量大于商品数量！！！" });
                     record.PersonId = (int)Session["CurrentUserId"];
                     if(goods.GoodsType==GoodType.Borrow)
                         record.OperationType = OpType.Borrow;
@@ -57,10 +57,10 @@ namespace Management.Controllers
                     
                     db.Records.Add(record);
                     db.SaveChanges();
-                    return RedirectToAction("Info", "Home", new { Info = "Operation Success." });
+                    return RedirectToAction("Info", "Home", new { Info = "操作成功" });
                 }
                 else
-                    return RedirectToAction("Info", "Home", new { Info = "Goods Id " + record.GoodId + " Does Not Exist." });
+                    return RedirectToAction("Info", "Home", new { Info = "商品编号 " + record.GoodId + " 不存在" });
             }
             return View(record);
         }
@@ -71,7 +71,7 @@ namespace Management.Controllers
             if (Session["CurrentUserId"] != null && Session["CurrentUserIsAdminister"] != null)
                 return View();
             else
-                return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
+                return RedirectToAction("Info", "Home", new { Info = "请先登录" });
         }
         // POST: Records/Return
         [HttpPost]
@@ -82,10 +82,10 @@ namespace Management.Controllers
             {
                 Goods goods = db.Goods.Find(record.GoodId);
                 if (goods == null)
-                    return RedirectToAction("Info", "Home", new { Info = "Goods Id " + record.GoodId + " Does Not Exist." });
+                    return RedirectToAction("Info", "Home", new { Info = "商品编号 " + record.GoodId + " 不存在" });
 
                 if (goods.GoodsType == GoodType.Consumption)
-                    return RedirectToAction("Info", "Home", new { Info = "Goods Id " + record.GoodId + " Is Consumption." });
+                    return RedirectToAction("Info", "Home", new { Info = "商品编号 " + record.GoodId + " 是消耗品" });
 
                 int CurrentUserId = (int)Session["CurrentUserId"];
                 
@@ -131,7 +131,7 @@ namespace Management.Controllers
 
                 db.Records.Add(record);
                 db.SaveChanges();
-                return RedirectToAction("Info", "Home", new { Info = "Operation Success." });
+                return RedirectToAction("Info", "Home", new { Info = "操作成功" });
                
             }
             return View(record);
@@ -144,7 +144,7 @@ namespace Management.Controllers
             if (Session["CurrentUserId"] != null && Session["CurrentUserIsAdminister"] != null)
                 return View();
             else
-                return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
+                return RedirectToAction("Info", "Home", new { Info = "请先登录" });
         }
         // POST: Records/Consumption
         [HttpPost]
@@ -165,10 +165,10 @@ namespace Management.Controllers
 
                     db.Records.Add(record);
                     db.SaveChanges();
-                    return RedirectToAction("Info", "Home", new { Info = "Operation Success." });
+                    return RedirectToAction("Info", "Home", new { Info = "操作成功" });
                 }
                 else
-                    return RedirectToAction("Info", "Home", new { Info = "Goods Id " + record.GoodId + " Does Not Exist." });
+                    return RedirectToAction("Info", "Home", new { Info = "商品编号 " + record.GoodId + " 不存在" });
             }
             return View(record);
         }
@@ -179,7 +179,7 @@ namespace Management.Controllers
             if (Session["CurrentUserId"] != null && Session["CurrentUserIsAdminister"] != null)
                 return View();
             else
-                return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
+                return RedirectToAction("Info", "Home", new { Info = "请先登录" });
         }
 
         // POST: Records/Search
@@ -196,7 +196,7 @@ namespace Management.Controllers
                     select Goods;
                 
                 if (goodsinfo == null)
-                    return RedirectToAction("Info", "Home", new { Info = "Goods Name " + GoodsName + " Does Not Exist." });
+                    return RedirectToAction("Info", "Home", new { Info = "商品名 " + GoodsName + " 不存在" });
             }
             return View(goodsinfo.ToList<Goods>());
         }
@@ -215,12 +215,12 @@ namespace Management.Controllers
                     select Record;
 
                 if (person_record == null)
-                    return RedirectToAction("Info", "Home", new { Info = "User " + Session["CurrentUserId"] + " Has No Records." });
+                    return RedirectToAction("Info", "Home", new { Info = "用户 " + Session["CurrentUserId"] + " 暂无借还记录" });
 
                 return View(person_record.ToList<Record>());
             }
             else
-                return RedirectToAction("Info", "Home", new { Info = "Please Login Before Operation!!!" });
+                return RedirectToAction("Info", "Home", new { Info = "请先登录" });
 
         }
     }

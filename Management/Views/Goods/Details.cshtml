@@ -1,18 +1,18 @@
 ﻿@model Management.Models.Goods.Goods
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "商品详情";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 style="margin-bottom:70px">Details</h2>
+<h2 style="margin-bottom:70px">商品详情</h2>
 
 <div>
-    <h4>Goods</h4>
+    <h4>商品信息</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.GoodsNum)
+            @Html.DisplayNameFor(model => model.GoodsId)
         </dt>
 
         <dd>
@@ -20,7 +20,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.GoodsId)
+            @Html.DisplayNameFor(model => model.GoodsName)
         </dt>
 
         <dd>
@@ -28,7 +28,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.GoodsName)
+            @Html.DisplayNameFor(model => model.GoodsNum)
         </dt>
 
         <dd>
@@ -62,6 +62,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.GoodsId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("编辑", "Edit", new { id = Model.GoodsId }) |
+    @Html.ActionLink("返回列表", "Index")
 </p>

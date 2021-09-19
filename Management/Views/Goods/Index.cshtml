@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<Management.Models.Goods.Goods>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "商品列表";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 style="margin-bottom:70px">Index</h2>
+<h2 style="margin-bottom:70px">商品列表</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("添加商品", "Create")
 </p>
 <table class="table">
     <tr>
@@ -54,9 +54,9 @@
             @Html.DisplayFor(modelItem => item.GoodsBuyTime)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.GoodsId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.GoodsId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.GoodsId })
+            @Html.ActionLink("编辑", "Edit", new { id = item.GoodsId }) |
+            @Html.ActionLink("详情", "Details", new { id = item.GoodsId }) |
+            @Html.ActionLink("删除", "Delete", new { id = item.GoodsId })
         </td>
     </tr>
 }

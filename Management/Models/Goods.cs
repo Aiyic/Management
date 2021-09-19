@@ -10,9 +10,9 @@ namespace Management.Models.Goods
 {
     public enum GoodType
     {
-        [Display(Name = "Borrow")]
+        [Display(Name = "借用品")]
         Borrow = 0,
-        [Display(Name = "Consumption")]
+        [Display(Name = "消耗品")]
         Consumption = 1
     }
 
@@ -20,22 +20,28 @@ namespace Management.Models.Goods
     {
         [Key]
         //[DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Display(Name = "商品编号")]
         public int GoodsId { get; set; }
 
         [Required]
         [Index(IsUnique = true)]
         [MaxLength(50)]
+        [Display(Name = "商品名称")]
         public string GoodsName { get; set; }
         [Required]
         [Range(0, 10000000)]
+        [Display(Name = "商品数量")]
         public int GoodsNum { get; set; }
         [Required]
         [Range(0, 100000000)]
+        [Display(Name = "商品单价")]
         public double GoodsPrice { get; set; }
 
         [Required]
-        public GoodType GoodsType { get; set; }  //0:jie 1:huan 2:xiaohao
+        [Display(Name = "商品类别")]
+        public GoodType GoodsType { get; set; }  
 
+        [Display(Name = "商品购买日期")]
         public DateTime GoodsBuyTime { get; set; }
     }
     

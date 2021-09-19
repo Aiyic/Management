@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<Management.Models.Record.Record>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "借还记录";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 style="margin-bottom:70px">Index</h2>
+<h2 style="margin-bottom:70px">借还记录</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("添加记录", "Create")
 </p>
 <table class="table">
     <tr>
@@ -54,9 +54,9 @@
             @Html.DisplayFor(modelItem => item.OperationTime)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.RecordId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.RecordId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.RecordId })
+            @Html.ActionLink("编辑", "Edit", new { id = item.RecordId }) |
+            @Html.ActionLink("详情", "Details", new { id = item.RecordId }) |
+            @Html.ActionLink("删除", "Delete", new { id = item.RecordId })
         </td>
     </tr>
 }

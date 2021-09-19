@@ -1,11 +1,11 @@
 ﻿@model Management.Models.Goods.Goods
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "添加商品";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 style="text-align:center;margin-bottom:70px">Create</h2>
+<h2 style="text-align:center;margin-bottom:70px">添加商品</h2>
 
 
 @using (Html.BeginForm()) 
@@ -13,7 +13,7 @@
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal" style="padding-left:300px">
-    <h4 style="padding-left:240px">Goods</h4>
+    <h4 style="padding-left:240px">商品</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
@@ -41,9 +41,9 @@
         @Html.LabelFor(model => model.GoodsType, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             <select class="form-control" name="GoodsType">
-                <option label="Select Operation" selected="selected" style="display : none"></option>
-                <option label="Borrow" value=@Management.Models.Goods.GoodType.Borrow></option>
-                <option label="Consumption" value=@Management.Models.Goods.GoodType.Consumption></option>
+                <option label="请选择" selected="selected" style="display : none"></option>
+                <option label="借用品" value=@Management.Models.Goods.GoodType.Borrow></option>
+                <option label="消耗品" value=@Management.Models.Goods.GoodType.Consumption></option>
             </select>
             @Html.ValidationMessageFor(model => model.GoodsType, "", new { @class = "text-danger" })
         </div>
@@ -51,7 +51,7 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+            <input type="submit" value="添加" class="btn btn-default" />
         </div>
     </div>
 </div>
@@ -59,7 +59,7 @@
 
 <div style="text-align:center">
     <button type="button" class="btn btn-outline-primary">
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("返回列表", "Index")
     </button>
 </div>
 

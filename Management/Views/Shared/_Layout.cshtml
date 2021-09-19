@@ -22,9 +22,9 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("主页", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Person", "Index", "People")</li>
-                    <li>@Html.ActionLink("Goods", "Index", "Goods")</li>
-                    <li>@Html.ActionLink("Record", "Index", "Records")</li>
+                    <li>@Html.ActionLink("账户管理", "Index", "People")</li>
+                    <li>@Html.ActionLink("商品列表", "Index", "Goods")</li>
+                    <li>@Html.ActionLink("借还记录", "Index", "Records")</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink("注册", "Register", "Home")</li>
@@ -37,11 +37,11 @@
                         <li>@Html.ActionLink("注销", "Logout", "Home")</li>
                         if ((bool)Session["CurrentUserIsAdminister"])
                         {
-                            <li>@Html.ActionLink("Administer", "Edit", "People", new { id = Session["CurrentUserId"] }, null)</li>
+                            <li>@Html.ActionLink("管理员:"+ Session["CurrentUserId"], "Edit", "People", new { id = Session["CurrentUserId"] }, null)</li>
                         }
                         else
                         {
-                            <li>@Html.ActionLink("User", "Edit", "Home", new { id = Session["CurrentUserId"] }, null)</li>
+                            <li>@Html.ActionLink("用户:"+ Session["CurrentUserId"], "Edit", "Home", new { id = Session["CurrentUserId"] }, null)</li>
                         }
                     }
                 </ul>
