@@ -99,7 +99,7 @@ namespace Management.Controllers
                 var ReturnRecords =
                     from Record in db.Records
                     where Record.PersonId == CurrentUserId
-                        && Record.OperationType == OpType.借用
+                        && Record.OperationType == OpType.归还
                         && Record.GoodId == record.GoodId
                     select new { number = Record.OperationNum };
 
@@ -110,7 +110,7 @@ namespace Management.Controllers
                         TotalBorrowNum += i.number;
                     }
                 else
-                    return RedirectToAction("Info", "Home", new { Info = "This User " + Session["CurrentUserId"] + " Has Not Borrowed Goods " + record.GoodId });
+                    return RedirectToAction("Info", "Home", new { Info = "用户 " + Session["CurrentUserId"] + " 未借用商品 " + record.GoodId });
 
                 if (BorrowRecords != null)
                     foreach (var i in ReturnRecords.ToArray())
@@ -120,7 +120,7 @@ namespace Management.Controllers
 
                 if(TotalBorrowNum-TotalReturnNum < record.OperationNum)
                 {
-                    return RedirectToAction("Info", "Home", new { Info = "This User " + Session["CurrentUserId"] + " Return Num Is More Than Borrow Num" });
+                    return RedirectToAction("Info", "Home", new { Info = "用户 " + Session["CurrentUserId"] + " 归还数量大于借用数" });
                 }
                 record.PersonId = (int)Session["CurrentUserId"];
                 record.OperationType = OpType.归还;
